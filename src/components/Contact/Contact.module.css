@@ -1,0 +1,25 @@
+.contact {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border: 2px solid gray;
+  border-radius: 20px;
+  padding: 0 20px;
+}
+
+.div {
+  text-align: start;
+}
+
+.btn {
+  width: 100px;
+  height: 50px;
+  border: 1px solid lightblue;
+}
+
+h3,
+p {
+  display: flex;
+  align-items: center;
+}
