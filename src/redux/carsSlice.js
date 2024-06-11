@@ -1,17 +1,25 @@
-import { createSlice, isAnyOf } from "@reduxjs/toolkit";
+import { createAction, createSlice, isAnyOf } from "@reduxjs/toolkit";
 import { fetchAllCarsThunk, filterCarsThunk } from "./operations";
 
-const contactsInitialState = {
+const carsInitialState = {
   items: [],
+  liked: false,
   loading: false,
   error: null,
 };
+export const likeCar = createAction("likeCar");
 
 const carsSlice = createSlice({
   name: "cars",
-  initialState: contactsInitialState,
+  initialState: carsInitialState,
   extraReducers: (builder) => {
     builder
+      .addCase(likeCar, (state, action) => {
+        const item = state.items.find((item) => item.id === action.payload);
+        if (item) {
+          item.liked = !item.liked;
+        }
+      })
       .addCase(fetchAllCarsThunk.fulfilled, (state, { payload }) => {
         state.items = payload;
       })

@@ -5,7 +5,7 @@ import { Route, Routes } from "react-router-dom";
 import { Layout } from "./components/Layout/Layout";
 import Home from "./components/Home/Home";
 import Catalog from "./components/Catalog/Catalog";
-import Select from "./components/Select/Select";
+import Favorite from "./components/Favorite/Favorite";
 
 function App() {
   const dispatch = useDispatch();
@@ -19,7 +19,7 @@ function App() {
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
           <Route path="catalog" element={<Catalog />} />
-          <Route path="selected" element={<Select />} />
+          <Route path="favorites" element={<Favorite />} />
           <Route path="*" element={<Home />} />
         </Route>
       </Routes>

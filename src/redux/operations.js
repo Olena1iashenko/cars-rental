@@ -18,7 +18,7 @@ export const fetchAllCarsThunk = createAsyncThunk(
 );
 
 export const filterCarsThunk = createAsyncThunk(
-  "cars/filterCar",
+  "cars/filterCars",
   async (carId, thunkApi) => {
     try {
       const { data } = await instance.get(`cars/${carId}`);
