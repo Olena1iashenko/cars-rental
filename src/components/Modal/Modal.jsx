@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { IoClose } from "react-icons/io5";
+import { Link } from "react-router-dom";
 
 const Modal = ({ closeModal, item, isOpen }) => {
   useEffect(() => {
@@ -42,6 +43,9 @@ const Modal = ({ closeModal, item, isOpen }) => {
         <li>Mileage: {item.mileage.toLocaleString()}</li>
         <li>Price: {item.rentalPrice}</li>
       </ul>
+      <Link to="tel:+380730000000" onClick={closeModal}>
+        Rental car
+      </Link>
     </div>
   );
 };
