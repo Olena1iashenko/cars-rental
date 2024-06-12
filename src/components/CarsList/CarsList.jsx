@@ -7,12 +7,15 @@ import s from "./CarsList.module.css";
 const CarsList = () => {
   const [page, setPage] = useState(1);
   const [loading, setLoading] = useState(false);
+
   const dispatch = useDispatch();
   const cars = useSelector((state) => state.cars.items);
+
   const handleLoadMore = () => {
     setPage((prevPage) => prevPage + 1);
   };
-  const hasMoreCars = cars.length % 12 === 0 && cars.length > 0;
+  // const hasMoreCars = cars.length % 12 === 0 && cars.length > 0;
+  const hasMoreCars = cars.length >= 12 * page;
 
   useEffect(() => {
     const fetchCars = async () => {
@@ -27,6 +30,7 @@ const CarsList = () => {
 
     fetchCars();
   }, [dispatch, page]);
+
   return (
     <div>
       <ul className={s.list}>
