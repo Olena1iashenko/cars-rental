@@ -1,4 +1,4 @@
-import { createAction, createSlice, isAnyOf } from "@reduxjs/toolkit";
+import { createSlice, createAction, isAnyOf } from "@reduxjs/toolkit";
 import { fetchAllCarsThunk, filterCarsThunk } from "./operations";
 
 const carsInitialState = {
@@ -7,14 +7,14 @@ const carsInitialState = {
   loading: false,
   error: null,
 };
-export const likeCar = createAction("likeCar");
+export const toggleLike = createAction("toggleLike");
 
 const carsSlice = createSlice({
   name: "cars",
   initialState: carsInitialState,
   extraReducers: (builder) => {
     builder
-      .addCase(likeCar, (state, action) => {
+      .addCase(toggleLike, (state, action) => {
         const item = state.items.find((item) => item.id === action.payload);
         if (item) {
           item.liked = !item.liked;
@@ -49,4 +49,5 @@ const carsSlice = createSlice({
   },
 });
 
+// export const { toggleLike } = carsSlice.actions;
 export const carsReducer = carsSlice.reducer;

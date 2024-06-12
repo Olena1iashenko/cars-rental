@@ -1,11 +1,13 @@
 import { useDispatch } from "react-redux";
-import { likeCar } from "../../redux/carsSlice";
+
+import { FcLike, FcLikePlaceholder } from "react-icons/fc";
+import { toggleLike } from "../../redux/carsSlice";
 
 const CarItem = ({ item }) => {
   const dispatch = useDispatch();
 
-  const handleLikeClick = () => {
-    dispatch(likeCar(item.id));
+  const handleLikeToggle = () => {
+    dispatch(toggleLike(item.id));
   };
 
   return (
@@ -14,7 +16,11 @@ const CarItem = ({ item }) => {
       <h3>{item.make}</h3>
       <p>{item.address[2]}</p>
       <p>{item.type}</p>
-      <button onClick={handleLikeClick}>Like</button>
+      {item.liked ? (
+        <FcLike onClick={handleLikeToggle} />
+      ) : (
+        <FcLikePlaceholder onClick={handleLikeToggle} />
+      )}
     </li>
   );
 };

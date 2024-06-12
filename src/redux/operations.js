@@ -7,9 +7,9 @@ const instance = axios.create({
 
 export const fetchAllCarsThunk = createAsyncThunk(
   "cars/fetchAllCars",
-  async (_, thunkApi) => {
+  async (page, thunkApi) => {
     try {
-      const { data } = await instance.get("cars");
+      const { data } = await instance.get(`cars?page=${page}&limit=12`);
       return data;
     } catch (error) {
       return thunkApi.rejectWithValue(error.message);
@@ -28,27 +28,3 @@ export const filterCarsThunk = createAsyncThunk(
     }
   }
 );
-
-// export const addContactThunk = createAsyncThunk(
-//   "contacts/addContact",
-//   async (contact, thunkApi) => {
-//     try {
-//       const { data } = await instance.post("contacts", contact);
-//       return data;
-//     } catch (error) {
-//       return thunkApi.rejectWithValue(error.message);
-//     }
-//   }
-// );
-
-// export const deleteContactThunk = createAsyncThunk(
-//   "contacts/deleteContact",
-//   async (contactId, thunkApi) => {
-//     try {
-//       const { data } = await instance.delete(`contacts/${contactId}`);
-//       return data;
-//     } catch (error) {
-//       return thunkApi.rejectWithValue(error.message);
-//     }
-//   }
-// );
