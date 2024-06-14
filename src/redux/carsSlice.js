@@ -7,6 +7,7 @@ const carsInitialState = {
   loading: false,
   error: null,
 };
+
 export const toggleLike = createAction("toggleLike");
 
 const carsSlice = createSlice({
@@ -49,5 +50,5 @@ const carsSlice = createSlice({
   },
 });
 
-// export const { toggleLike } = carsSlice.actions;
+// export const { setCars } = carsSlice.actions;
 export const carsReducer = carsSlice.reducer;
