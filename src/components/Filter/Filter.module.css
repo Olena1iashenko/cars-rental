@@ -2,6 +2,7 @@
   margin-bottom: 50px;
   display: flex;
   justify-content: center;
+  align-items: end;
   gap: 18px;
   label {
     display: flex;
@@ -47,4 +48,13 @@
   font-size: 14px;
   line-height: 143%;
   color: #fff;
+}
+
+.filteredCars {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 29px;
+  row-gap: 50px;
+  margin-bottom: 50px;
 }
