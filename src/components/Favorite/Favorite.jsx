@@ -1,9 +1,16 @@
 import { useSelector } from "react-redux";
 import CarItem from "../CarItem/CarItem";
+function isLiked(id) {
+  // Retrieve existing likes from localStorage
+  let likes = JSON.parse(localStorage.getItem("likes")) || [];
+
+  // Check if the id exists in likes
+  return likes.includes(id);
+}
 
 const Favorites = () => {
   const cars = useSelector((state) => state.cars.items);
-  const favoriteCars = cars.filter((car) => car.liked);
+  const favoriteCars = cars.filter((car) => isLiked(car.id));
   return (
     <div>
       <h2>Favorite Cars</h2>

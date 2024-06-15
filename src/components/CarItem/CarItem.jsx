@@ -3,6 +3,13 @@ import { useState } from "react";
 import { FcLike, FcLikePlaceholder } from "react-icons/fc";
 import { toggleLike } from "../../redux/carsSlice";
 import Modal from "../Modal/Modal";
+function isLiked(id) {
+  // Retrieve existing likes from localStorage
+  let likes = JSON.parse(localStorage.getItem("likes")) || [];
+
+  // Check if the id exists in likes
+  return likes.includes(id);
+}
 
 const CarItem = ({ item }) => {
   const dispatch = useDispatch();
@@ -13,7 +20,8 @@ const CarItem = ({ item }) => {
   const handleLikeToggle = () => {
     dispatch(toggleLike(item.id));
   };
-
+  let likedEl = isLiked(item.id);
+  //   item.liked = likedEl;
   return (
     <li key={item.id}>
       <img src={item.img} alt={item.description} width={200} />
@@ -34,7 +42,8 @@ const CarItem = ({ item }) => {
       {isModalOpen && (
         <Modal item={item} isOpen={isModalOpen} closeModal={closeModal} />
       )}
-      {item.liked ? (
+
+      {likedEl ? (
         <FcLike onClick={handleLikeToggle} />
       ) : (
         <FcLikePlaceholder onClick={handleLikeToggle} />
