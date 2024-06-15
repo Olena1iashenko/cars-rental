@@ -1,0 +1,15 @@
+.mainBox {
+  font: var(--font-family);
+  padding: 150px 128px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  h2 {
+    margin-bottom: 14px;
+    font-size: 30px;
+    img {
+      object-fit: contain;
+    }
+  }
+}

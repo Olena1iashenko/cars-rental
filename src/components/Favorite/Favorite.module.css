@@ -1,0 +1,17 @@
+.mainBox {
+  padding: 150px 128px;
+  h2 {
+    font: var(--font-family);
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
+  }
+}
+.list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 29px;
+  row-gap: 50px;
+}

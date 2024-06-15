@@ -10,10 +10,7 @@ const carsInitialState = {
 
 export const toggleLike = createAction("toggleLike");
 function saveLike(id) {
-  // Retrieve existing likes from localStorage
   let likes = JSON.parse(localStorage.getItem("likes")) || [];
-
-  // Add the new id if it doesn't already exist
   if (!likes.includes(id)) {
     likes.push(id);
     localStorage.setItem("likes", JSON.stringify(likes));
@@ -21,10 +18,7 @@ function saveLike(id) {
 }
 
 function removeLike(id) {
-  // Retrieve existing likes from localStorage
   let likes = JSON.parse(localStorage.getItem("likes")) || [];
-
-  // Remove the id if it exists
   if (likes.includes(id)) {
     likes = likes.filter((item) => item !== id);
     localStorage.setItem("likes", JSON.stringify(likes));

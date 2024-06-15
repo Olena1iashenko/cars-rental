@@ -10,9 +10,8 @@ export const fetchAllCarsThunk = createAsyncThunk(
   "cars/fetchAllCars",
   async (page, thunkApi) => {
     try {
-      // const { data } = await instance.get(`cars?page=${page}&limit=12`);
-      const { data } = await instance.get(`cars`);
-      console.log(data);
+      const { data } = await instance.get(`cars?page=${page}&limit=12`);
+      // const { data } = await instance.get(`cars`);
       return data;
     } catch (error) {
       return thunkApi.rejectWithValue(error.message);
