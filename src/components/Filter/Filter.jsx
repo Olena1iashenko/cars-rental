@@ -15,13 +15,18 @@ const Filter = () => {
   };
   const handlePriceChange = (event) => {
     setSelectedPriceRange(event.target.value);
+    console.log(
+      "setSelectedPriceRange(event.target.value): " + event.target.value
+    );
   };
   const handleSearch = () => {
     const filtered = cars.filter((car) => {
       const byMake = selectedMake === "" || car.make === selectedMake;
       const byPrice =
         selectedPriceRange === "" ||
-        car.rentalPrice <= parseInt(selectedPriceRange);
+        car.rentalPrice.slice(1) <= parseInt(selectedPriceRange);
+      console.log("rentalPrice: " + car.rentalPrice);
+      console.log("byPrice: " + byPrice);
       return byMake && byPrice;
     });
     setFilteredCars(filtered);
